@@ -70,6 +70,10 @@ const container = document.getElementById("planes");
 planes.forEach(plan => {
   const card = document.createElement("div");
   card.className = "plan-card";
+
+  const mensaje = `Hola, deseo más información sobre el plan ${plan.nombre} (${plan.velocidad}). Precio con tarjeta: ${plan.precioTC}. Otras formas: ${plan.precioOtro}.`;
+  const enlaceWhatsApp = `${plan.whatsapp}?text=${encodeURIComponent(mensaje)}`;
+
   card.innerHTML = `
     <h2>${plan.nombre}</h2>
     <p><strong>Velocidad:</strong> ${plan.velocidad}</p>
@@ -77,12 +81,14 @@ planes.forEach(plan => {
     <p><strong>Precio (Otras formas de pago):</strong> ${plan.precioOtro}</p>
     <div class="plan-details">
       <ul>${plan.incluye.map(i => `<li>${i}</li>`).join("")}</ul>
-      <button onclick="window.open('${plan.whatsapp}', '_blank')">Seleccionar Plan</button>
+      <button onclick="window.open('${enlaceWhatsApp}', '_blank')">Seleccionar Plan</button>
     </div>
   `;
+
   card.addEventListener("click", () => {
     const detail = card.querySelector(".plan-details");
     detail.style.display = detail.style.display === "block" ? "none" : "block";
   });
+
   container.appendChild(card);
 });
