@@ -79,15 +79,21 @@ planes.forEach(plan => {
     <p><strong>Velocidad:</strong> ${plan.velocidad}</p>
     <p><strong>Precio (Tarjeta de Crédito):</strong> ${plan.precioTC}</p>
     <p><strong>Precio (Otras formas de pago):</strong> ${plan.precioOtro}</p>
+    <a class="leer-mas" href="#" style="display:inline-block; margin-top: 10px; color:#ffe600; text-decoration:underline;">Leer más</a>
     <div class="plan-details">
       <ul>${plan.incluye.map(i => `<li>${i}</li>`).join("")}</ul>
       <button onclick="window.open('${enlaceWhatsApp}', '_blank')">Seleccionar Plan</button>
     </div>
   `;
 
-  card.addEventListener("click", () => {
-    const detail = card.querySelector(".plan-details");
-    detail.style.display = detail.style.display === "block" ? "none" : "block";
+  const detail = card.querySelector(".plan-details");
+  const leerMas = card.querySelector(".leer-mas");
+
+  leerMas.addEventListener("click", (e) => {
+    e.preventDefault();
+    const isVisible = detail.style.display === "block";
+    detail.style.display = isVisible ? "none" : "block";
+    leerMas.textContent = isVisible ? "Leer más" : "Leer menos";
   });
 
   container.appendChild(card);
