@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Fondo animado */
+.animated-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #3b005f, #1b0036);
+  z-index: -4;
+}
+
+@keyframes pulseBg {
+  0%, 100% {
+    background: radial-gradient(circle at center, #3b005f, #1b0036);
+  }
+  50% {
+    background: radial-gradient(circle at center, #5e0b9b, #2d0050);
+  }
+}
+
+/* Letras X flotando */
+.floating-xs {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -3;
+}
+
+.floating-xs span {
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  user-select: none;
+  animation: floatX 15s linear forwards;
+}
+
+@keyframes floatX {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.1; }
+  50% { opacity: 0.07; }
+  100% {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Marca de agua */
+.background-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.03;
+}
+.brand-watermark {
+  font-size: 10rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 0 10px #ffcc00;
+}
+.brand-watermark span {
+  font-size: 2rem;
+  font-weight: 300;
+  display: block;
+  margin-top: 2rem;
+}
+
+/* Encabezado */
+header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #ffe600;
+  text-shadow: 1px 1px 5px #000;
+}
+.subheading {
+  font-size: 1.2rem;
+  color: #fff0b3;
+}
+
+/* Sección de recomendación */
+.seccion-inicio {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #fff0b3;
+}
+.seccion-inicio h2 {
+  color: #ffe600;
+  font-size: 2rem;
+}
+.opiniones {
+  font-style: italic;
+  color: #ccc;
+}
+.promo-msg {
+  margin-top: 1.5rem;
+  color: #ffcc00;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Planes */
+.plans-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+.plan-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 2px solid #ffea00;
+  transition: 0.4s;
+  cursor: pointer;
+  color: #ffffff;
+}
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+.plan-card h2 {
+  color: #ffd700;
+}
+.plan-details {
+  display: none;
+  margin-top: 1rem;
+  animation: fadeIn 0.5s ease forwards;
+}
+.plan-details ul {
+  padding-left: 1.2rem;
+}
+button {
+  background-color: #ffe600;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #ffcc00;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  color: #fff;
+}
